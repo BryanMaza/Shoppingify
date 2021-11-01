@@ -1,0 +1,131 @@
+@import "../../variables";
+.products {
+  width: 100%;
+  padding: 1.875rem 0.77rem 0 0.77rem;
+  background: $gray;
+  overflow: hidden;
+  h2 {
+    font-size: 1.125rem;
+    margin-bottom: 1.125rem;
+  }
+  .category {
+    & > h1 {
+      font-size: 1.625rem;
+      margin-bottom: 1.6rem;
+      span {
+        color: $oranje;
+      }
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 0.5rem;
+      .item {
+        background: #fff;
+        padding: 0.81rem 1rem;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+
+        & :last-child {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  .addProduct {
+    position: relative;
+    height: 100%;
+    padding: 0 0.5rem;
+    h2 {
+      margin-bottom: 2.11rem;
+    }
+    form {
+      margin-bottom: 1.6rem;
+      .form-group {
+        margin-bottom: 1.125rem;
+        font-size: 0.875rem;
+        display: flex;
+        flex-direction: column-reverse;
+        position: relative;
+
+        input,
+        textarea,
+        .categories {
+          margin: 0.375rem 0;
+          width: 100%;
+          padding: 1rem 1.03rem;
+          border-radius: 12px;
+          border: 2px solid $gray-border;
+
+          &:focus + label {
+            color: $oranje;
+          }
+        }
+
+        .categories {
+          border: 1px solid $gray-light;
+          opacity: 0;
+          height: 0;
+          padding: 0;
+          margin: 0;
+          background: #fff;
+          transition: height 0.5s ease-in-out;
+          &.active {
+            opacity: 1;
+            height: auto;
+            padding: 1rem 1.03rem;
+            margin: 0.375rem 0;
+          }
+          li {
+            padding: 0.75rem 1.3rem;
+            &.selected {
+              font-weight: bold;
+              background: $gray-very-light;
+              border-radius: 12px;
+            }
+          }
+        }
+
+        .error {
+          color: red;
+        }
+        textarea {
+          height: 6.9rem;
+        }
+        .close {
+          position: absolute;
+          top: 2.325rem;
+          right: 1.16rem;
+          height: 1.5rem;
+          width: 1.5rem;
+          opacity: 0;
+          &.active {
+            opacity: 0.5;
+          }
+        }
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2.6rem;
+        margin: 0 2rem;
+
+        .btn {
+          padding: 1.25rem 1.5rem;
+          border-radius: 12px;
+          border: 1px solid transparent;
+          font-weight: bold;
+        }
+        .btn-danger {
+          background: transparent;
+        }
+        .btn-primary {
+          background: $oranje;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
